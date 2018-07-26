@@ -23,24 +23,27 @@ and open the template in the editor.
             <form method="POST" action="guardarUsuario.php" id="formUsuario" >
 
                 <div class="form-group">
-                    <label for="txtNombre">Nombre Completo:</label> 
-                    <input type="text" id="txtNombre" name="txtNombre" value="" class="form-control">
+                    <label for="txtNombreUsuario">Nombre Completo:</label> 
+                    <input type="text" id="txtNombreUsuario" name="txtNombreUsuario" value="" class="form-control">
+                    <p class="" id="errorNombreU"> </p>
                 </div>
                 <div class="form-group">
-                    <label for="txtEmail">Email:</label> 
-                    <input type="text" id="txtEmail" name="txtEmail" value="" class="form-control">
+                    <label for="txtEmailUsuario">Email:</label> 
+                    <input type="text" id="txtEmailUsuario" name="txtEmailUsuario" value="" class="form-control">
+                     <p class="" id="errorEmailU"> </p>
                 </div>
                 <div class="form-group">
                     <label for="txtPassword">Contraseña:</label> 
                     <input type="text" id="txtPassword" name="txtPassword" value="" class="form-control">
+                    <p class="" id="errorPasswordU"> </p>
                 </div>
                 <div class="form-group">
-                    <label for="txtCorreo"> Administrador </label>
+                    <label for="chkAdmin"> Administrador </label>
                     <input type="checkbox" id="chkAdmin" name="chkAdmin" value="S">
                 </div>
 
-                <input type="button" value="Guardar" id="btnGrabar" class="btn-primary btn-lg">
-                <input type="reset" value="Cancelar" id="btnCancelar" class="btn-primary btn-lg">
+                <input type="button" value="Guardar" id="btnGrabarUsuario" class="btn-primary btn-lg">
+                <input type="reset" value="Cancelar" id="btnCancelarUsuario" class="btn-primary btn-lg">
             </form>
         </div>
 

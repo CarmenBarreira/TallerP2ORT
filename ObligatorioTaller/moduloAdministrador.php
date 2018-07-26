@@ -16,8 +16,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-          <h1> Bienvenido Obligatorio</h1>
-          <p><a href="registroUsuario.php" target="_blank">Registro Usuario</a> </p>
-          <p><a href="moduloAdministrador.php" target="_blank">Modulo Admin</a> </p>
+          <h1> Modulo Administrador</h1>
+          <p><a href="registroCategoria.php" target="_blank">Registro Categoria</a> </p>
     </body>
 </html>
