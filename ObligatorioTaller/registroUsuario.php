@@ -35,7 +35,9 @@ and open the template in the editor.
                 </div>
                 <div class="form-group">
                     <label for="txtPassword">Contraseña:</label> 
-                    <input type="text" id="txtPassword" name="txtPassword" value="" class="form-control">
+                    <br>
+                    <input type="password" id="txtPassword" name="txtPassword" value="" class="col-xs-8">
+                    <input type="checkbox" onclick="mostrarPassword()" class="col-xs-1"> Mostrar Contraseña
                     <p class="" id="errorPasswordU"> </p>
                 </div>
                 <div class="form-group">

@@ -2,6 +2,7 @@ $(document).ready(inicializoRU);
 function inicializoRU() {
     $("#txtNombreUsuario").blur(validarNombre);
     $("#txtEmailUsuario").blur(validarEmail);
+    $("#txtPassword").blur(validarPassword);
 }
 
 function validarNombre() {
@@ -29,3 +30,22 @@ function validarEmail() {
     }
 
 }
+function validarPassword() {
+    /*Valida email*/
+    var dato = $(this).val();
+    var patron = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ]/;
+    if (!patron.test(dato)) {
+            alert("La contraseña ingresada no valido. La misma debe tener al menos 1 mayusucula, 1 numero y 1 minuscula");
+    }
+
+}
+
+function mostrarPassword(){    
+    var x = document.getElementById("txtPassword");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+
