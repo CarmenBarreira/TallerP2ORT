@@ -8,6 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <script src="Librerias/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <script src="registroUsuario.js" type="text/javascript"></script>
 
         <!-- Boostrap -->
         <link href="Librerias/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -24,7 +25,7 @@ and open the template in the editor.
 
                 <div class="form-group">
                     <label for="txtNombreUsuario">Nombre Completo:</label> 
-                    <input type="text" id="txtNombreUsuario" name="txtNombreUsuario" value="" class="form-control">
+                    <input type="text" id="txtNombreUsuario" nametxtNombreUsuario value="" class="form-control">
                     <p class="" id="errorNombreU"> </p>
                 </div>
                 <div class="form-group">
