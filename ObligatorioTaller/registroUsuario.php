@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <script src="Librerias/js/jquery-3.3.1.min.js" type="text/javascript"></script>
-        <script src="registroUsuario.js" type="text/javascript"></script>
+        <script src="js/registroUsuario.js" type="text/javascript"></script>
 
         <!-- Boostrap -->
         <link href="Librerias/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>

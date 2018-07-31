@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <script src="Librerias/js/jquery-3.3.1.min.js" type="text/javascript"></script>
-        <script src="index.js" type="text/javascript"></script>
-        
-        <!-- Boostrap -->
-        <link href="Librerias/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="Librerias/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-        
-        <title></title>
-    </head>
-    <body>
-          <h1> Bienvenido Obligatorio</h1>
-          <p><a href="registroUsuario.php" target="_blank">Registro Usuario</a> </p>
-          <p><a href="moduloAdministrador.php" target="_blank">Modulo Admin</a> </p>
-    </body>
-</html>
+<?php
+//Incluyo la biblioteca SMARTY
+require_once('Librerias/smarty/libs/Smarty.class.php');
+
+//Instancio objeto SMARTY
+$smarty = new Smarty();
+
+//Indicamos las carpetas a usar por SMARTY
+$smarty->template_dir = "templates";
+$smarty->compile_dir = "templates_c";
+
+//Logica...
+
+//Muestro el resultado al Cliente
+$smarty->display('index.tpl')
+
+?>
