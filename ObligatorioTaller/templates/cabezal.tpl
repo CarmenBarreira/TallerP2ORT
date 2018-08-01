@@ -7,7 +7,7 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.php">Home</a></li>
               <li><a href="#">Publicaciones</a></li>
-              <li><a href="#">Registro Usuario</a></li>
+              <li><a href="registroUsuario.php" target="blank">Registro Usuario</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="logout.php"><span class="glyphicon glyphicon-user"></span>Salir</a></li>
