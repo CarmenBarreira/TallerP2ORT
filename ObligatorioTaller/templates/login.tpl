@@ -16,10 +16,11 @@ and open the template in the editor.
         
      </head>
      <body>
-    <div class="col-md-6 col-md-offset-3"> 
+    <div > 
+         {include file="cabezal.tpl"}
         <h1></h1>
         <br>
-        <form method="POST" action="procesoLogin.php">
+        <form method="POST" action="procesoLogin.php" class="col-md-6 col-md-offset-3">
             
             <div class="form-group">
                 <label for="txtUsuario">Usuario: </label> 
