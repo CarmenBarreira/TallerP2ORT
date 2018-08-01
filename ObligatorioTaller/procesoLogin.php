@@ -4,7 +4,7 @@ session_start();
 $usuario = $_POST['txtUsuario'];
 $clave = $_POST['txtClave'];
 
-if($usuario == "admin" && $clave == "1234"){
+if($usuario == "admin" && $clave == "Pass1234"){
     $_SESSION['entro'] = true;
     setcookie("usuario",$usuario,time()+86400);
     header("Location: privada.php");
