@@ -35,7 +35,7 @@ and open the template in the editor.
             </div>
             
             <br/>
-           
+     
             <input type="submit" value="Ingresar al Sistema" class="btn-primary btn-lg"/>
         </form>
         {if $mensaje neq "" }

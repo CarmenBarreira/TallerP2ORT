@@ -25,13 +25,17 @@ and open the template in the editor.
           
                     
         <br> 
-
-       
-
-        <div class="container">
-          <h3>Right Aligned Navbar</h3>
+<div class ="col-md-1"></div>
+<div class ="col-md-10">
+        <div  id="seccionRecetas" class="container col-md-6 border thin solid black">
+          <h3>Recetas</h3>
           <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
         </div>
-
+        <div id="seccionNotas" class="container col-md-6 border thin solid black">
+          <h3>Notas</h3>
+          <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
+        </div>
+    </div>
+<div class ="col-md-1"></div>
     </body>
 </html>

@@ -12,8 +12,6 @@
         <script src="Librerias/Bootstrap/bootstrap.min.js" type="text/javascript"></script>
     </head>
     <body>
-          {include file="cabezalAdmin.tpl"}
-        
-        
+          {include file="cabezal.tpl"}  
     </body>
 </html>
