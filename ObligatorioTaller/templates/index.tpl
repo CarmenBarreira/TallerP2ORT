@@ -9,6 +9,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <script src="Librerias/js/jquery-3.3.1.min.js" type="text/javascript"></script>
         <script src="index.js" type="text/javascript"></script>
+        <link href="../css/estilos.css" rel="stylesheet" type="text/css"/>
         
         <!-- Boostrap -->
         <link href="Librerias/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -17,8 +18,20 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-          <h1> Bienvenido Obligatoriooooooo</h1>
+        {include file="cabezal.tpl"}
+        <br>
+         
           <p><a href="registroUsuario.php" target="_blank">Registro Usuario</a> </p>
-          <p><a href="moduloAdministrador.php" target="_blank">Modulo Admin</a> </p>
+          
+                    
+        <br> 
+
+       
+
+        <div class="container">
+          <h3>Right Aligned Navbar</h3>
+          <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
+        </div>
+
     </body>
 </html>
