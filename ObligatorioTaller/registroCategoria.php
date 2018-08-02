@@ -17,12 +17,8 @@
             <h1> Alta Categoria</h1>
             <br><br>
 
-            <form method="POST" action="guardarUsuario.php" id="formUsuario" >
+            <form method="POST" action="guardarUsuario.php" id="formCategoria" >
 
-                <div class="form-group">
-                    <label for="txtIdCategoria">Id:</label> 
-                    <input type="text" id="txtIdCategoria" name="txtIdCategoria" value="" class="form-control">
-                </div>
                 <div class="form-group">
                     <label for="txtNombreCategoria">Nombre:</label> 
                     <input type="text" id="txtNombreCategoria" name="txtNombreCategoria" value="" class="form-control">

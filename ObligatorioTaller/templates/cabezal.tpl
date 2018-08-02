@@ -8,9 +8,9 @@
                 {if $smarty.session.admin eq true}
               <li class="active"><a href="index.php">Home</a></li>
               <li><a href="#">Listar Publicaciones</a></li>
-              <li><a href="#">Registrar Usuario</a></li>
+              <li><a href="registroUsuario.php">Registrar Usuario</a></li>
               <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrar Categorias
+                  <a class="dropdown-toggle" data-toggle="dropdown">Administrar Categorias
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="registroCategoria.php" target="blank">Alta</a></li>
@@ -22,7 +22,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrar Publicaciones
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="#">Alta</a></li>
+                      <li><a href="registroPublicacion.php">Alta</a></li>
                       <li><a href="#">Baja </a></li>
                       <li><a href="#">Modificacion</a></li>
                     </ul>
