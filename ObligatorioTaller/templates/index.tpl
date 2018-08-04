@@ -20,22 +20,34 @@ and open the template in the editor.
     <body>
         {include file="cabezal.tpl"}
         <br>
-         
-          <p><a href="registroUsuario.php" target="_blank">Registro Usuario</a> </p>
-          
-                    
+        <p><a href="registroUsuario.php" target="_blank">Registro Usuario</a> </p>
         <br> 
-<div class ="col-md-1"></div>
-<div class ="col-md-10">
-        <div  id="seccionRecetas" class="container col-md-6 border thin solid black">
-          <h3>Recetas</h3>
-          <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
+       
+        <div class ="col-md-12">
+            <div  id="seccionRecetas" class="container col-md-6 border thin solid black">
+              <h3>Recetas</h3>
+              <br>         
+              {foreach from=$recetas item=receta} 
+              <div class="panel panel-warning">
+                  <div class="panel-heading">
+                      <h3 class="panel-title"><b>{$receta['titulo']}</b></h3>
+                  </div>
+                  <div class="panel-body">
+                      <p>{$receta['texto']}</p>
+                      <p><b>Fecha de publicacion:</b> {$receta['fecha']}</p>
+                      <p>{$receta['imagen']}</p>
+                  </div>
+                </div>
+              {/foreach}
+
+
+
+            </div>
+            <div id="seccionNotas" class="container col-md-6 border thin solid black">
+              <h3>Notas</h3>
+              <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
+            </div>
         </div>
-        <div id="seccionNotas" class="container col-md-6 border thin solid black">
-          <h3>Notas</h3>
-          <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
-        </div>
-    </div>
-<div class ="col-md-1"></div>
+        
     </body>
 </html>

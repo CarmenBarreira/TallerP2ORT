@@ -12,6 +12,7 @@ $smarty->assign("mensaje",$_SESSION['mensaje']);
 
 unset($_SESSION['mensaje']);
 
+
 $smarty->display("login.tpl");
 
 ?>
