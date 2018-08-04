@@ -40,12 +40,24 @@ and open the template in the editor.
                 </div>
               {/foreach}
 
-
-
             </div>
             <div id="seccionNotas" class="container col-md-6 border thin solid black">
               <h3>Notas</h3>
-              <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
+              
+              {foreach from=$notas item=nota} 
+              <div class="panel panel-warning">
+                  <div class="panel-heading">
+                      <h3 class="panel-title"><b>{$nota['titulo']}</b></h3>
+                  </div>
+                  <div class="panel-body">
+                      <p>{$nota['texto']}</p>
+                      <p><b>Fecha de publicacion:</b> {$nota['fecha']}</p>
+                      <p>{$nota['imagen']}</p>
+                  </div>
+                </div>
+              {/foreach}
+              
+              
             </div>
         </div>
         

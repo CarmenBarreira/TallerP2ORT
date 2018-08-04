@@ -20,17 +20,48 @@ $con->conectar();
 if ($con) {
     $sqlRecetas = "SELECT * FROM publicaciones WHERE tipo_id = 1 ORDER BY (Fecha) DESC limit 4";
     $parametros = array();
+    
+    
+    $sqlNotas = "SELECT * FROM publicaciones WHERE tipo_id = 2 ORDER BY (Fecha) DESC limit 4";
+    $parametrosNotas = array();
 
-    $result = $con->consulta($sqlRecetas, $parametros);
+    $resultRecetas = $con->consulta($sqlRecetas, $parametros);
+//    $resultNotas = $con->consulta($sqlNotas, $parametrosNotas);
 
-    if ($result) {//la ejecucion de mi consulta fue V => debo obterner la lista de filas obtenidas por la consulta
+   
+    if ($resultRecetas) {//la ejecucion de mi consulta fue V => debo obterner la lista de filas obtenidas por la consulta
         $recetas = $con->restantesRegistros();
-
-        //para probar
-//        var_dump($recetas);
-//        die();
-
         $smarty->assign("recetas", $recetas);
+    } else {
+        echo 'error de consulta' . $con->ultimoError;
+    }
+    
+//     if ($resultNotas) {//la ejecucion de mi consulta fue V => debo obterner la lista de filas obtenidas por la consulta
+//        $notas = $con->restantesRegistros();
+//        $smarty->assign("notas", $notas);
+//    } else {
+//        echo 'error de consulta' . $con->ultimoError;
+//    }
+    
+} else {
+    echo "error de conexion" . $con->ultimoError; // devuelve la cadena con el ultimo error 
+}
+
+
+$con->desconectar();
+ 
+  
+$con->conectar();
+
+if ($con) {
+    $sqlNotas = "SELECT * FROM publicaciones WHERE tipo_id = 2 ORDER BY (Fecha) DESC limit 4";
+    $parametrosNotas = array();
+
+    $resultNotas = $con->consulta($sqlNotas, $parametrosNotas);
+
+    if ($resultNotas) {//la ejecucion de mi consulta fue V => debo obterner la lista de filas obtenidas por la consulta
+        $notas = $con->restantesRegistros();
+        $smarty->assign("notas", $notas);
     } else {
         echo 'error de consulta' . $con->ultimoError;
     }
@@ -38,6 +69,9 @@ if ($con) {
     echo "error de conexion" . $con->ultimoError; // devuelve la cadena con el ultimo error 
 }
 
+
 //Muestro el resultado al Cliente
-$smarty->display('index.tpl')
+$smarty->display('index.tpl');
+
+
 ?>
