@@ -18,7 +18,7 @@ $con = new ConexionBD("mysql", "localhost", "Obligatorio", "root", "root"); //Es
 $con->conectar();
 
 if ($con) {
-    $sqlRecetas = "SELECT * FROM publicaciones WHERE tipo_id = 1 ORDER BY (Fecha) DESC";
+    $sqlRecetas = "SELECT * FROM publicaciones WHERE tipo_id = 1 ORDER BY (Fecha) DESC limit 4";
     $parametros = array();
 
     $result = $con->consulta($sqlRecetas, $parametros);
