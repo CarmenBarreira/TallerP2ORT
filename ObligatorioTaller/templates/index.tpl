@@ -26,7 +26,7 @@ and open the template in the editor.
               {foreach from=$recetas item=receta} 
               <div class="panel panel-warning">
                   <div class="panel-heading">
-                      <a class="panel-title" href="#"><b>{$receta['titulo']}</b></a> 
+                      <a class="panel-title" href="listadoPublicacionesTipo.php"><b>{$receta['titulo']}</b></a> 
                   </div>
                   <div class="panel-body">
                       <p>{$receta['texto']}</p>
