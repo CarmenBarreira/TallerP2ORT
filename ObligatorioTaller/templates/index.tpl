@@ -19,22 +19,19 @@ and open the template in the editor.
     </head>
     <body>
         {include file="cabezal.tpl"}
-        <br>
-        <p><a href="registroUsuario.php" target="_blank">Registro Usuario</a> </p>
-        <br> 
        
         <div class ="col-md-12">
             <div  id="seccionRecetas" class="container col-md-6 border thin solid black">
               <h3>Recetas</h3>
-              <br>         
               {foreach from=$recetas item=receta} 
               <div class="panel panel-warning">
                   <div class="panel-heading">
-                      <h3 class="panel-title"><b>{$receta['titulo']}</b></h3>
+                      <a class="panel-title" href="#"><b>{$receta['titulo']}</b></a> 
                   </div>
                   <div class="panel-body">
                       <p>{$receta['texto']}</p>
                       <p><b>Fecha de publicacion:</b> {$receta['fecha']}</p>
+                      <p><b>Categoria:</b> {$receta['nombre']}</p>
                       <p>{$receta['imagen']}</p>
                   </div>
                 </div>
@@ -47,7 +44,7 @@ and open the template in the editor.
               {foreach from=$notas item=nota} 
               <div class="panel panel-warning">
                   <div class="panel-heading">
-                      <h3 class="panel-title"><b>{$nota['titulo']}</b></h3>
+                      <a class="panel-title" href="#"><b>{$nota['titulo']}</b></a> 
                   </div>
                   <div class="panel-body">
                       <p>{$nota['texto']}</p>

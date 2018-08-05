@@ -5,10 +5,11 @@
                 <a class="navbar-brand" style="pointer-events: none;"><img src="img/gastronomia.png" alt="logo de gastronomia" style="display: inline-block; align-items: center" height="30px"/>Blog de Gastronomia</a>
             </div>
             <ul class="nav navbar-nav">
-                {if $smarty.session.admin eq true}
+               
               <li class="active"><a href="index.php">Home</a></li>
               <li><a href="#">Listar Publicaciones</a></li>
               <li><a href="registroUsuario.php">Registrar Usuario</a></li>
+              {if $smarty.session.admin eq true}
               <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown">Administrar Categorias
                     <span class="caret"></span></a>

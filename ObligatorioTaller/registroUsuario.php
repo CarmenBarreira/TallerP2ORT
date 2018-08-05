@@ -45,7 +45,7 @@ and open the template in the editor.
                     <input type="checkbox" id="chkAdmin" name="chkAdmin" value="S">
                 </div>
 
-                <input type="button" value="Guardar" id="btnGrabarUsuario" class="btn-primary btn-lg">
+                <input type="submit" value="Guardar" id="btnGrabarUsuario" class="btn-primary btn-lg">
                 <input type="reset" value="Cancelar" id="btnCancelarUsuario" class="btn-primary btn-lg">
             </form>
         </div>

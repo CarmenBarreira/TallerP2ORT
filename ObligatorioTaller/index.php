@@ -3,8 +3,8 @@
 //Incluyo la biblioteca SMARTY
 require_once('Librerias/smarty/libs/Smarty.class.php');
 require_once('Librerias/class.Conexion.BD.php');
+require_once('config/configuracion.php');
     
-
 //Instancio objeto SMARTY
 $smarty = new Smarty();
 
@@ -18,13 +18,16 @@ $con = new ConexionBD("mysql", "localhost", "Obligatorio", "root", "root"); //Es
 $con->conectar();
 
 if ($con) {
-    $sqlRecetas = "SELECT * FROM publicaciones WHERE tipo_id = 1 ORDER BY (Fecha) DESC limit 4";
+    $sqlRecetas = "SELECT p.titulo as titulo, SUBSTRING(p.texto, 1, 150) as texto, " 
+        . "p.fecha as fecha, p.imagen as imagen, c.nombre as nombre, c.categoria_id " 
+        . " FROM publicaciones p, categorias c "
+        . "WHERE (p.tipo_id = 1 AND p.categoria_id = c.categoria_id)"
+        . "ORDER BY p.Fecha DESC limit 4";
+    
+    
     $parametros = array();
     
     
-    $sqlNotas = "SELECT * FROM publicaciones WHERE tipo_id = 2 ORDER BY (Fecha) DESC limit 4";
-    $parametrosNotas = array();
-
     $resultRecetas = $con->consulta($sqlRecetas, $parametros);
 //    $resultNotas = $con->consulta($sqlNotas, $parametrosNotas);
 
@@ -54,7 +57,12 @@ $con->desconectar();
 $con->conectar();
 
 if ($con) {
-    $sqlNotas = "SELECT * FROM publicaciones WHERE tipo_id = 2 ORDER BY (Fecha) DESC limit 4";
+    $sqlNotas = "SELECT p.titulo as titulo, SUBSTRING(p.texto, 1, 150) as texto, " 
+        . "p.fecha as fecha, p.imagen as imagen, c.nombre as nombre, c.categoria_id " 
+        . " FROM publicaciones p, categorias c "
+        . "WHERE (p.tipo_id = 2 AND p.categoria_id = c.categoria_id)"
+        . "ORDER BY p.Fecha DESC limit 4";
+    
     $parametrosNotas = array();
 
     $resultNotas = $con->consulta($sqlNotas, $parametrosNotas);
