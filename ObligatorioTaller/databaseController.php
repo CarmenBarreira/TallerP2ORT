@@ -1,0 +1,83 @@
+<?php
+require_once("Librerias/class.Conexion.BD.php");
+require_once("config/configuracion.php");
+
+function conectarDB (){
+$conn = new ConexionBD("mysql","localhost","Obligatorio","root","root");
+$conn->conectar(); 
+ return $conn;  
+}
+
+function getRecetas(){
+    $con = conectarDB();
+
+   if ($con) {
+    $sqlRecetas = "SELECT p.titulo as titulo, SUBSTRING(p.texto, 1, 150) as texto, " 
+        . "p.fecha as fecha, p.imagen as imagen, c.nombre as nombre, c.categoria_id " 
+        . " FROM publicaciones p, categorias c "
+        . "WHERE (p.tipo_id = 1 AND p.categoria_id = c.categoria_id)"
+        . "ORDER BY p.Fecha DESC limit 4";  
+    
+    $parametros = array();
+     
+    $resultRecetas = $con->consulta($sqlRecetas, $parametros);
+ 
+    if ($resultRecetas) {//la ejecucion de mi consulta fue V => debo obterner la lista de filas obtenidas por la consulta
+        $recetas = $con->restantesRegistros();
+        return $recetas;
+    } else {
+        echo 'error de consulta' . $con->ultimoError;
+    } 
+    
+   } 
+    
+}
+
+function getNotas(){
+    $con = conectarDB();
+if ($con) {
+    $sqlNotas = "SELECT p.titulo as titulo, SUBSTRING(p.texto, 1, 150) as texto, " 
+        . "p.fecha as fecha, p.imagen as imagen, c.nombre as nombre, c.categoria_id " 
+        . " FROM publicaciones p, categorias c "
+        . "WHERE (p.tipo_id = 2 AND p.categoria_id = c.categoria_id)"
+        . "ORDER BY p.Fecha DESC limit 4";
+    
+    $parametrosNotas = array();
+
+    $resultNotas = $con->consulta($sqlNotas, $parametrosNotas);
+
+    if ($resultNotas) {//la ejecucion de mi consulta fue V => debo obterner la lista de filas obtenidas por la consulta
+        $notas = $con->restantesRegistros();
+        return $notas;
+    } else {
+        echo 'error de consulta' . $con->ultimoError;
+    }
+} else {
+    echo "error de conexion" . $con->ultimoError; // devuelve la cadena con el ultimo error 
+}
+    
+    
+    
+    
+    
+}
+
+function loginUser($usuario, $clave) {
+    $con = conectarDB();
+    $con->consulta(
+            "select * from usuarios where usuario=:nom and clave=:cla", array(
+        array("nom", $usuario, 'string'),
+        array("cla", $clave, 'string')
+    ));
+    
+    $usr = $cn->siguienteRegistro();
+    if($usr!=null) {
+        session_start();
+        $_SESSION["usuario"] = $usr;        
+    }
+    
+    return $usr;
+    
+}
+
+?>
