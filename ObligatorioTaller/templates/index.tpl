@@ -22,7 +22,7 @@ and open the template in the editor.
        
         <div class ="col-md-12">
             <div  id="seccionRecetas" class="container col-md-6 border thin solid black">
-              <h3>Recetas</h3>
+                <a href="listadoPublicacionesTipo.php"><h3>Recetas</h3></a>
               {foreach from=$recetas item=receta} 
               <div class="panel panel-warning">
                   <div class="panel-heading">
@@ -39,7 +39,7 @@ and open the template in the editor.
 
             </div>
             <div id="seccionNotas" class="container col-md-6 border thin solid black">
-              <h3>Notas</h3>
+               <a href="listadoPublicacionesTipo.php"><h3>Notas</h3></a>
               
               {foreach from=$notas item=nota} 
               <div class="panel panel-warning">
