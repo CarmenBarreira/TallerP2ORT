@@ -33,6 +33,31 @@ function getRecetas(){
     
 }
 
+
+function getPublicaciones(){
+    
+  $con = conectarDB();
+if($con){
+    
+  $sqlPublicaciones = "SELECT * FROM publicaciones";
+  
+  $parametros = array();
+
+    $result = $con->consulta($sqlPublicaciones, $parametros);
+
+    if ($result) {//la ejecucion de mi consulta fue V => debo obterner la lista de filas obtenidas por la consulta
+        $publicaciones = $con->restantesRegistros();
+    
+    return $publicaciones;
+  } else {
+        echo 'error de consulta' . $con->ultimoError;
+    }
+} else {
+    echo "error de conexion" . $con->ultimoError; // devuelve la cadena con el ultimo error 
+}
+   
+}
+
 function getNotas(){
     $con = conectarDB();
 if ($con) {

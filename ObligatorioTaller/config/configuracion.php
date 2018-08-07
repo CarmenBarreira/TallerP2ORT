@@ -1,8 +1,10 @@
 <?php
-define("MOTOR", "mysql");
-define("SERVIDOR", "localhost");
-define("BASE", "Obligatorio");
-define("USUARIO", "root");
-define("CLAVE", "root");
+
+define("MOTOR","mysql");
+define("SERVIDOR","localhost");
+define("BASE","autores");
+define("USUARIO","root");
+define("CLAVE","root");
+
 
 ?>
