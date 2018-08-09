@@ -99,4 +99,33 @@ function crearUsuario($email, $password, $esAdmin) {
         array("adm", $esAdmin, 'int'),
     ));
 }
+
+
+function getCategoria($nombre) {
+    $existeCategoria = false;
+    $cn = conectarDB();
+    $cn->consulta(
+            "select * from categorias where nombre=:nom", array(
+        array("nom", $nombre, 'string')
+               
+    ));
+    $res = $cn->siguienteRegistro(); 
+   
+    if ($res!=null) {
+        $existeCategoria = true;
+    }
+    return $existeCategoria;
+}
+
+function crearCategoria($nombre, $eliminado) {
+    $cn = conectarDB();
+    $cn->consulta(
+            "insert into categorias"
+            . "(nombre, eliminado)"
+            . " values(:nom, :elim)", array(
+        array("nom", $nombre, 'string'),
+        array("elim", $eliminado, 'int'),
+    ));
+   
+}
 ?>

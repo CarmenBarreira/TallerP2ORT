@@ -9,12 +9,13 @@ $nombreCategoria = xss_clean($_POST['txtNombreCategoria']);
 $categoriaEliminada = isset($_POST['chkCategoriaEliminada']) ? 1 : 0;   
 
 
-/*if (getUsuario($email) == false) {
-    crearUsuario($email, $password, $esAdmin);
+if (getCategoria($nombreCategoria) == false) {
+     
+    crearCategoria($nombreCategoria, $categoriaEliminada);
   //  $smarty->display('index.tpl');
 } else {
-    $message = "$email existe";
+    $message = "$nombreCategoria existe";
     echo "<script type='text/javascript'>alert('$message');</script>";
-}*/
+}
 
 ?>

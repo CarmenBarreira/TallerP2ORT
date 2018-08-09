@@ -31,7 +31,7 @@
                     <input type="checkbox" id="chkCategoriaEliminada" name="chkCategoriaEliminada" value="S">
                 </div>
 
-                <input type="button" value="Guardar" id="btnGrabarCategoria" class="btn-primary btn-lg">
+                <input type="submit" value="Guardar" id="btnGrabarCategoria" class="btn-primary btn-lg">
                 <input type="reset" value="Cancelar" id="btnCancelarCategoria" class="btn-primary btn-lg">
             </form>
         </div>
