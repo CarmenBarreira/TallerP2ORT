@@ -13,37 +13,48 @@ and open the template in the editor.
         <!-- Boostrap -->
         <link href="Librerias/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="Librerias/Bootstrap/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-
-        <title></title>
     </head>
     <body>
-        <div class="col-md-6 col-md-offset-3">  
-            <h1> Registro de usuario</h1>
-            <br><br>
 
-            <form method="POST" action="guardarUsuario.php" id="formUsuario" >
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+                    <div class="col-md-6 col-md-offset-3">  
+                        <h1> Registro de usuario</h1>
 
-                <div class="form-group">
-                    <label for="txtEmailUsuario">Email:</label> 
-                    <input type="text" id="txtEmailUsuario" name="txtEmailUsuario" value="" class="form-control">
-                     <p class="" id="errorEmailU"> </p>
-                </div>
-                <div class="form-group">
-                    <label for="txtPassword">Contraseña:</label> 
-                    <br>
-                    <input type="password" id="txtPassword" name="txtPassword" value="" class="col-xs-8">
-                    <input type="checkbox" onclick="mostrarPassword()" class="col-xs-1"> Mostrar Contraseña
-                    <p class="" id="errorPasswordU"> </p>
-                </div>
-                <div class="form-group">
-                    <label for="chkAdmin"> Administrador </label>
-                    <input type="checkbox" name="chkAdmin" value="1" />
-                   
-                </div>
+                        <form method="POST" action="guardarUsuario.php" id="formUsuario" >
 
-                <input type="submit" value="Guardar" id="btnGrabarUsuario" class="btn-primary btn-lg">
-                <input type="reset" value="Cancelar" id="btnCancelarUsuario" class="btn-primary btn-lg">
-            </form>
+                            <div class="form-group">
+                                <label for="txtEmailUsuario">Email:</label> 
+                                <input type="text" id="txtEmailUsuario" name="txtEmailUsuario" value="" class="form-control">
+                                <p id="errorEmailU" class="form-text text-muted"></p>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPassword6">Password</label>
+                                <input type="password" id="txtPassword" class="form-control mx-sm-3" >
+                                <p id="error-password" class="form-text text-muted"></p>
+                                <small class="text-muted">
+                                    <input type="checkbox" onclick="mostrarPassword()" class="form-check-input"> Mostrar Contraseña
+                                </small>
+                            </div>
+
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                                <input type="checkbox" class="custom-control-input" id="customControlInline"  name="chkAdmin" value="1" />
+                                <label class="custom-control-label" for="customControlInline">Administrador</label>
+                            </div>
+                            <input type="submit" value="Guardar" id="btnGrabarUsuario" class="btn-primary btn-lg">
+                            <input type="reset" value="Cancelar" id="btnCancelarUsuario" class="btn-primary btn-lg">
+                        </form>
+                    </div>
+                    <div class="col-sm">
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </body>

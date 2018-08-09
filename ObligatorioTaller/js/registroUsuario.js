@@ -5,37 +5,24 @@ function inicializoRU() {
     $("#txtPassword").blur(validarPassword);
 }
 
-function validarNombre() {
-    /*Valida textos tipo nombres, no acepta numeros*/
-    var dato = $(this).val();
-    var patron = /\D[A-Za-zÁÉÍÓÚáéíóú]{3}/;
-    if ($.trim(dato).length != 0)
-    {
-        if (!(dato.match(patron))) {
-            alert("El nombre de usuario no es valido");
-            return false;
-        }
-    } else {
-        alert("El nombre de usuario no puede ser vacio");
-        return false;
-    }
-}
 
 function validarEmail() {
-    /*Valida email*/
-    var dato = $(this).val();
-    var patron = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (!patron.test(dato)) {
-            alert("El mail ingresado no valido");
+     var dato = $(this).val();
+    if (validarEmailLogico(dato)) {
+       document.getElementById('errorEmailU').innerHTML= "El correo electronico no es correcto";
+       document.getElementById('error-password').style.color="red"; 
     }
-
 }
+
+
+
 function validarPassword() {
-    /*Valida email*/
     var dato = $(this).val();
-    var patron = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ]/;
-    if (!patron.test(dato)) {
-            alert("La contraseña ingresada no valido. La misma debe tener al menos 1 mayusucula, 1 numero y 1 minuscula");
+    if (!validarPasswordLogico(dato)) {
+       document.getElementById('error-password').innerHTML= "La contraseña ingresada no es valida. La misma debe tener al menos 8 caracteres, 1 mayusucula, 1 numero y 1 minuscula";
+       document.getElementById('error-password').style.color="red";   
+    }else{
+         document.getElementById('error-password').innerHTML= "";    
     }
 
 }
@@ -49,3 +36,23 @@ function mostrarPassword(){
     }
 }
 
+function validarEmailLogico(var mail) {
+    var retorno = true;
+    var patron = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!patron.test(mail)) {
+       retorno = false;
+    }
+    return retorno;
+}
+
+function validarPasswordLogico(var password) {
+    var retorno = true;
+    var dato = $(this).val();
+    var patron = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ]/;
+    if (!patron.test(password) || dato.length<8 ) {
+       retorno=false;
+    }
+    
+    return retorno;
+
+}

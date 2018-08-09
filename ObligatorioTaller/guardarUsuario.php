@@ -9,7 +9,7 @@ $password = $_POST['txtPassword'];
 $esAdmin = isset($_POST['chkAdmin']) ? 1 : 0;
 
 
-if (getUsuario($email) == false){
+if (getUsuario($email) == false  ){
 crearUsuario($email, $password, $esAdmin);
 }else
     {
