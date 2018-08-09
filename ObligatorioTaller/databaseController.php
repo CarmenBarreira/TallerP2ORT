@@ -1,11 +1,14 @@
 <?php
+
 require_once("Librerias/class.Conexion.BD.php");
 require_once("config/configuracion.php");
+
 function conectarDB() {
     $conn = new ConexionBD("mysql", "localhost", "Obligatorio", "root", "root");
     $conn->conectar();
     return $conn;
 }
+
 function getRecetas() {
     $con = conectarDB();
     if ($con) {
@@ -24,6 +27,7 @@ function getRecetas() {
         }
     }
 }
+
 function getPublicaciones() {
     $con = conectarDB();
     if ($con) {
@@ -40,6 +44,7 @@ function getPublicaciones() {
         echo "error de conexion" . $con->ultimoError; // devuelve la cadena con el ultimo error 
     }
 }
+
 function getNotas() {
     $con = conectarDB();
     if ($con) {
@@ -60,34 +65,43 @@ function getNotas() {
         echo "error de conexion" . $con->ultimoError; // devuelve la cadena con el ultimo error 
     }
 }
+
 function loginUser($usuario, $clave) {
     $con = conectarDB();
-    $con->consulta(
-            "select * from usuarios where email=:ema and clave=:cla", array(
-        array("ema", $usuario, 'string'),
-        array("cla", $clave, 'string')
-    ));
-    $usr = $cn->siguienteRegistro();
-    if ($usr != null) {
-        session_start();
-        $_SESSION["usuario"] = $usr;
+    
+    if ($con) {
+        
+        $con->consulta(
+                "select * from usuarios where email=:ema and password=:cla", array(
+            array("ema", $usuario, 'string'),
+            array("cla", $clave, 'string')
+        ));
+        
+        $usr = $con->siguienteRegistro();
+//        var_dump($usr);
+//        die();
+        if ($usr != null) {
+            session_start();
+            $_SESSION["usuario"] = $usr;
+        }
+        return $usr;
     }
-    return $usr;
 }
+
 function getUsuario($email) {
     $existeUsuario = false;
     $cn = conectarDB();
     $cn->consulta(
             "select * from usuarios where email=:ema", array(
         array("ema", $email, 'string')
-               
     ));
-    $res = $cn->siguienteRegistro(); 
-    if ($res!=null) {
+    $res = $cn->siguienteRegistro();
+    if ($res != null) {
         $existeUsuario = true;
     }
     return $existeUsuario;
 }
+
 function crearUsuario($email, $password, $esAdmin) {
     $cn = conectarDB();
     $cn->consulta(
@@ -100,18 +114,16 @@ function crearUsuario($email, $password, $esAdmin) {
     ));
 }
 
-
 function getCategoria($nombre) {
     $existeCategoria = false;
     $cn = conectarDB();
     $cn->consulta(
             "select * from categorias where nombre=:nom", array(
         array("nom", $nombre, 'string')
-               
     ));
-    $res = $cn->siguienteRegistro(); 
-   
-    if ($res!=null) {
+    $res = $cn->siguienteRegistro();
+
+    if ($res != null) {
         $existeCategoria = true;
     }
     return $existeCategoria;
@@ -126,6 +138,6 @@ function crearCategoria($nombre, $eliminado) {
         array("nom", $nombre, 'string'),
         array("elim", $eliminado, 'int'),
     ));
-   
 }
+
 ?>

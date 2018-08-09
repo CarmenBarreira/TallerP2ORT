@@ -12,7 +12,7 @@ $categoriaEliminada = isset($_POST['chkCategoriaEliminada']) ? 1 : 0;
 if (getCategoria($nombreCategoria) == false) {
      
     crearCategoria($nombreCategoria, $categoriaEliminada);
-  //  $smarty->display('index.tpl');
+  //  $smarty->display('index.php');
 } else {
     $message = "$nombreCategoria existe";
     echo "<script type='text/javascript'>alert('$message');</script>";
