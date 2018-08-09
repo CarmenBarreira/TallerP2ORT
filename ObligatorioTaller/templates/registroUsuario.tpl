@@ -28,15 +28,15 @@ and open the template in the editor.
 
                             <div class="form-group">
                                 <label for="txtEmailUsuario">Email:</label> 
-                                <input type="text" id="txtEmailUsuario" name="txtEmailUsuario" value="" class="form-control">
-                                <p id="errorEmailU" class="form-text text-muted"></p>
+                                <input type="text" id="txtEmailUsuario" name="txtEmailUsuario" value="" class="form-control mx-sm-3">
+                                <div id="errorEmailU" name="errorEmailU" class="">   </div>
 
                             </div>
 
                             <div class="form-group">
                                 <label for="inputPassword6">Password</label>
                                 <input type="password" id="txtPassword" class="form-control mx-sm-3" >
-                                <p id="error-password" class="form-text text-muted"></p>
+                                <div id="errorPassword" class=""></div>
                                 <small class="text-muted">
                                     <input type="checkbox" onclick="mostrarPassword()" class="form-check-input"> Mostrar Contraseña
                                 </small>

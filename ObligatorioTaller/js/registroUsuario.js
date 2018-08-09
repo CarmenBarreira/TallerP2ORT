@@ -1,28 +1,34 @@
 $(document).ready(inicializoRU);
 function inicializoRU() {
-    $("#txtNombreUsuario").blur(validarNombre);
+   // $("#txtNombreUsuario").blur(validarNombre);
     $("#txtEmailUsuario").blur(validarEmail);
     $("#txtPassword").blur(validarPassword);
+   
 }
 
 
 function validarEmail() {
      var dato = $(this).val();
-    if (validarEmailLogico(dato)) {
-       document.getElementById('errorEmailU').innerHTML= "El correo electronico no es correcto";
-       document.getElementById('error-password').style.color="red"; 
+    if (validarEmailLogico(dato) === false) {
+        $("#errorEmailU").html("El correo electronico no es correcto");
+        $("#errorEmailU").addClass("alert alert-danger");
+    }
+    else{
+        $("#errorEmailU").removeClass("alert alert-danger");
+        $("#errorEmailU").html(" ");
     }
 }
-
 
 
 function validarPassword() {
     var dato = $(this).val();
     if (!validarPasswordLogico(dato)) {
-       document.getElementById('error-password').innerHTML= "La contraseña ingresada no es valida. La misma debe tener al menos 8 caracteres, 1 mayusucula, 1 numero y 1 minuscula";
-       document.getElementById('error-password').style.color="red";   
+        $("#errorPassword").html("La contraseña ingresada no es valida. La misma debe tener al menos 8 caracteres, 1 mayusucula, 1 numero y 1 minuscula");
+        $("#errorPassword").addClass("alert alert-danger");
+       
     }else{
-         document.getElementById('error-password').innerHTML= "";    
+        $("#errorPassword").removeClass("alert alert-danger");
+        $("#errorPassword").html(" ");
     }
 
 }
@@ -36,7 +42,7 @@ function mostrarPassword(){
     }
 }
 
-function validarEmailLogico(var mail) {
+function validarEmailLogico(mail) {
     var retorno = true;
     var patron = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!patron.test(mail)) {
@@ -45,12 +51,11 @@ function validarEmailLogico(var mail) {
     return retorno;
 }
 
-function validarPasswordLogico(var password) {
-    var retorno = true;
-    var dato = $(this).val();
+function validarPasswordLogico(password) {
+    var retorno = false;
     var patron = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ]/;
-    if (!patron.test(password) || dato.length<8 ) {
-       retorno=false;
+    if (password.length >=8 && patron.test(password)) {
+       retorno=true;
     }
     
     return retorno;
