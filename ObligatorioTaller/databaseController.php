@@ -68,15 +68,15 @@ function getNotas() {
 
 function loginUser($usuario, $clave) {
     $con = conectarDB();
-    
+
     if ($con) {
-        
+
         $con->consulta(
                 "select * from usuarios where email=:ema and password=:cla", array(
             array("ema", $usuario, 'string'),
             array("cla", $clave, 'string')
         ));
-        
+
         $usr = $con->siguienteRegistro();
 //        var_dump($usr);
 //        die();
@@ -137,6 +137,34 @@ function crearCategoria($nombre, $eliminado) {
             . " values(:nom, :elim)", array(
         array("nom", $nombre, 'string'),
         array("elim", $eliminado, 'int'),
+    ));
+}
+
+function getPublicacion($titulo) {
+    $existePublicacion = false;
+    $cn = conectarDB();
+    $cn->consulta(
+            "select * from publicaciones where titulo=:tit", array(
+        array("tit", $titulo, 'string')
+    ));
+    $res = $cn->siguienteRegistro();
+
+    if ($res != null) {
+        $existePublicacion = true;
+    }
+    return $existePublicacion;
+}
+
+function crearPublicacion($titulo, $texto, $fecha, $imagen) {
+    $cn = conectarDB();
+    $cn->consulta(
+            "insert into publicaciones"
+            . "(titulo, texto, fecha, imagen)"
+            . " values(:tit, :text, :fecha, :img)", array(
+        array("tit", $titulo, 'string'),
+        array("text", $texto, 'int'),
+        array("text", $fecha, 'string'),
+        array("text", $imagen, 'imagen'),
     ));
 }
 

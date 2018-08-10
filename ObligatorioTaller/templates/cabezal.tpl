@@ -7,7 +7,7 @@
             <ul class="nav navbar-nav">
                
               <li class="active"><a href="index.php">Home</a></li>
-              <li><a href="#">Listar Publicaciones</a></li>
+              <li><a href="">Listar Publicaciones</a></li>
               <li><a href="registroUsuario.php">Registrar Usuario</a></li>
               {if $smarty.session.admin eq true}
               <li class="dropdown">

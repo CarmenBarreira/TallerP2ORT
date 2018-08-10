@@ -19,7 +19,7 @@
             <h1> Alta Publicación</h1>
             <br><br>
 
-            <form method="POST" action="guardarUsuario.php" id="formPublicacion" >
+            <form method="POST" action="guardarPublicacion.php" id="formPublicacion" >
 
                 <div class="form-group">
                     <label for="txtTituloPublicacion">Titulo:</label> 
